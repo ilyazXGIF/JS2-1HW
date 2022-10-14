@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input id="INN" type="text" placeholder="введите свой ИНН" maxlength="14">
+    <button id="innCheck">далее</button>
+    <span id="innResult"></span>
+
+</body>
+<script>
+    const INN = document.querySelector('#INN')
+    const innCheck = document.querySelector("#innCheck")
+    const innResult = document.querySelector('#innResult')
+
+    const regEXP1 = /0\d{13}/;
+    const regEXP2 = /1\d{13}/;
+
+    innCheck.addEventListener('click', () =>{
+        if (regEXP1.test(INN.value)){
+            innResult.innerText = 'отправлено';
+        }
+        if (regEXP2.test(INN.value)){
+            innResult.innerText = 'отправлено';
+        }else {
+            innResult.innerText = 'ошибка ввода правильности'
+        }
+    })
+
+
+</script>
+</html>

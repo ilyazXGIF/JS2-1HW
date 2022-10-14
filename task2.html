@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="parrent" style="position: relative; width: 100vh; height: 300px">
+        <div class="square" style="width: 30px;height: 30px;background: red; position: absolute"></div>
+
+        <button class="button" style="position: absolute; top: 50px">нажмите</button>
+
+    </div>
+
+</body>
+<script>
+    const square = document.querySelector('.square');
+    const button = document.querySelector('.button');
+
+    const move = (element, from, to, step) =>{
+        console.log('1')
+        let position =parseInt(element.style.right,10);
+
+        position = isNaN(position) ? from : position;
+        if (position >= to) {
+            position = from;
+        } else {
+            position += step;
+        }
+        element.style.left = position + "px";
+    }
+
+    button.addEventListener( 'click' , ()=> {
+        move(square, 1000,200,1);
+    },300 );
+
+</script>
+</html>
